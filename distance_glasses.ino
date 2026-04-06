@@ -1,13 +1,15 @@
 /*
  */
 
+  //pin numbers
   const int BUZZER = 2;
   const int ECHO = 10;
   const int TRIG = 9;
 
-  float distance = 0;
+  float distance = 0, avgDistance = 0;
   int currentZone = 0, lastZone = 0, timer = 0;
   double lastBuzzerTime;
+  float distances[3] = {0.0, 0.0, 0.0};
 
   //the far bound of each zone. these can be easily adjusted by the end user to customize their experience.
   int zones[5] = {150, 75, 50, 25, 10};
@@ -34,33 +36,38 @@ void setup() {
 
 void loop() {
 
-    delay(100);
-  
+    delay(50);
+  //gets distance
     readDistance();
+  //applies averaging to mitigate jitter
+    smoothing();
 
-    if(distance > zone[0]) {
+  //determines zone distance and thus beep timeout
+    if(avgDistance > zones[0]) {
       currentZone = 0;
-    } else if(distance > zones[1] && distance < zones[0]) {
+    } else if(avgDistance > zones[1] && avgDistance < zones[0]) {
       currentZone = 1;
-    } else if(distance > zones[2] && distance < zones[1]) {
+    } else if(avgDistance > zones[2] && avgDistance < zones[1]) {
       currentZone = 2;
-    } else if(distance > zones[3] && distance < zones[2]) {
+    } else if(avgDistance > zones[3] && avgDistance < zones[2]) {
       currentZone = 3;
-    } else if (distance > zones[4] && distance < zones[3]) {
+    } else if (avgDistance > zones[4] && avgDistance < zones[3]) {
         currentZone = 4;
     } else {
       currentZone = 5;
     }
 
+  //update timer
   timer = zoneTimers[currentZone];
-  
+
+  //check timeout and sound if it's been long enough
   if(millis() - lastBuzzerTime > timer) {
     soundBuzzer();
   }
-  
-  if(currentZone != lastZone) {
+
+  /*if(currentZone != lastZone) {
     lastZone = currentZone;
-  }
+  } */
     
     
 }
@@ -72,13 +79,21 @@ void readDistance() {
     delay(2);
     digitalWrite(TRIG, LOW);
     distance = pulseIn(ECHO, HIGH) / 58.0;
-//    Serial.print(distance);
-//    Serial.print("\n");
 }
 
+
+//sounds the buzzer and stores the time of sound
 void soundBuzzer() {
   tone(BUZZER, 300);
   delay(50);
   noTone(BUZZER);
   lastBuzzerTime = millis();
+}
+
+//stores each of the last 3 distances in an array and averages them out
+void smoothing() {
+  distances[2] = distances[1];
+  distances[1] = distances[0];
+  distances[0] = distance;
+  avgDistance = (distances[0] + distances[1] + distances[2])/3.0;
 }
