@@ -14,7 +14,8 @@
   //the far bound of each zone. these can be easily adjusted by the end user to customize their experience.
   int zones[5] = {150, 75, 50, 25, 10};
   //the timer for how often the buzzer sounds. this can also be adjusted by the end user
-  int zoneTimers[6] = {2000, 1000, 750, 500, 250, 100};
+  int zoneTimers[6] = {4000, 2000, 1000, 500, 250, 100};
+  int soundFreq[6] = {200, 300, 500, 750, 1000, 1500};
 
 
 void setup() {
@@ -36,6 +37,8 @@ void setup() {
 
 void loop() {
 
+  Serial.print(distance);
+  Serial.print("\n");
     delay(50);
   //gets distance
     readDistance();
@@ -84,7 +87,7 @@ void readDistance() {
 
 //sounds the buzzer and stores the time of sound
 void soundBuzzer() {
-  tone(BUZZER, 300);
+  tone(BUZZER, soundFreq[currentZone]);
   delay(50);
   noTone(BUZZER);
   lastBuzzerTime = millis();
