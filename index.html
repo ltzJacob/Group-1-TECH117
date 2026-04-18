@@ -90,14 +90,60 @@
   <section id="environment">
     <h2>Environmental Impact Assessment</h2>
     <ul>
-      <li><strong>Materials:</strong> The Arduino Uno is RoHS and WEEE compliant, limiting hazardous substances.
-      </li>
-      <li><strong>Energy Efficiency:</strong> The circuit draws minimal power (~50 mA at 5V), ideal for USB or
-        solar power.</li>
-      <li><strong>Reusability:</strong> The Echo Vision Glasses used recyclable materials and easy to remove components
-        promoting sustainability for years to come.</li>
-      <li><strong>Packaging & Shipping:</strong> We order our products from cheap reputable sources that allow us to
-        make an affordable option for distance sensor glasses.</li>
+      <li>Comparative Analysis of Technologies
+
+<table> 
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+      <th>Sustainability Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ultrasonic Sensor</strong></td>
+      <td>
+        <ul>
+          <li>Cheap and easily accessible</li>
+          <li>Data is easily interpreted</li>
+          <li>Sensor is durable</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Sensor has issues with accuracy and jitter</li>
+          <li>Sensor is large and unwieldy for a wearable device</li>
+        </ul>
+      </td>
+      <td>Low power draw and simple construction makes the ultrasonic sensor the most sustainable option</td>
+    </tr>
+    <tr>
+      <td><strong>Camera</strong></td>
+      <td>
+        <ul>
+          <li>Much higher fidelity of data</li>
+          <li>Able to expand functions to include things like OCR and facial recognition</li>
+          <li>Potentially much smaller and lighter</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Much more expensive and fragile</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Requires more processing power for more complex functions</li>
+          <li>Data is difficult to access and interpret</li>
+          <li>Cameras require higher power draw and have much more complicated circuitry, making it a less sustainable option</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</li>
     </ul>
   </section>
 
@@ -308,8 +354,11 @@ void smoothing() {
   </section>
   <section id="conclusion">
     <h2>Conclusion</h2>
-    <p>The system effectively demonstrates distance-based alerting using Arduino. It’s affordable, educational, and
-      sustainable through reusable components.</p>
+    <p>The glasses need to be able to sense distance and inform the user of the approximate distance to objects in front of them. 
+      The glasses will be a success if someone who is unable to see is able to navigate the environment around them successfully by using them. 
+      Some issues that may impact our ability to complete the project are the fidelity of the ultrasonic sensor, the difficulty of making the device stable as a wearable project, 
+      and a lack of technical skills in order to build it.
+ </p>
   </section>
 
  <section id="references">
