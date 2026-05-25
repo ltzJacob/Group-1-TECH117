@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Echo Sight Distance Glasses
+  </title>
+
+  <!-- Prism.js syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+  <!-- Includes the stylesheet file styles.css -->
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<script>
+  window.addEventListener("beforeprint", () => {
+    const proto = document.getElementById("prototypeImage");
+    const printHeroImg = document.querySelector("#print-hero img");
+
+    if (proto && printHeroImg) {
+      printHeroImg.src = proto.src;
+    }
+  });
+</script>
+
+
+<body>
+  <!-- Fixed Navigation Menu -->
+  <nav id="menu">
+    <h3>Menu</h3>
+    <ul>
+      <li><a href="#top">Echo Sight</a></li>
+      <li><a href="#information">Project Information</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#circuit-diagram">Circuit</a></li>
+      <li><a href="#environment">Environment</a></li>
+      <li><a href="#bom">BoM</a></li>
+      <li><a href="#prototype">Prototype</a></li>
+      <li><a href="#code">Code</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </nav>
+  <button class="print-button" onclick="window.print()"
+    style="position: fixed; bottom: 24px; right: 24px; padding: 10px 16px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-size: 0.9rem; z-index: 2000;">
+     Print This Page </button>
+
+  <h1 id="top"> Echo Sight Distance Glasses </h1>
+  <div id="print-hero">
+    <img src="" alt="">
+  </div>
+
+  <section id="information">
+    <h2>Project Information</h2>
+    <p><strong>Course:</strong> TECH 117 (Computer Engineering Technology, Winter 2026)</p>
+    <p><strong>Instructor:</strong> Ph.D. Ana Rodrigues</p>
+    <p><strong>Team Members: </strong></p>
+    <ul>
+      <li> Amber Cummings</li>
+      <li> Tim Chen</li>
+      <li> Jacob Sereda</li>
+      <li> Jairus Keane Acol</li>
+    </ul>
+  </section>
+
+  <section id="introduction">
+    <h2>Introduction</h2>
+    <p>People who are blind, by definition, are unable to see their surroundings. They often need to rely on external
+      supports in order to navigate the world, such as a seeing-eye dog or a white cane. However, these supports are not
+      always available, and their use may not always be possible in certain settings.</p>
+
+      <p>Our proposed solution is a wearable device that will use specific sound tones to signal the approximate distance
+      between the user and the object they are looking at. This device will give visually impared people an additional
+      tool in order to safely navigate their environment, by allowing them to sense the objects in the space around
+      them, as well as warning them when an object comes too close.</p>
+
+       <p>
+      What does your project need to do? How will you know if it works well?         
+The glasses need to be able to sense distance and inform the user of the approximate distance to objects in front of them.
+ The glasses will be a success if someone who is unable to see is able to navigate the environment around them successfully
+  by using them.
+
+What might make it harder to finish?
+Not having accurate enough sensors to be able to consistently measure and interpret distance
+Not having technical skills in product construction
+Wires running from the lanyard to the glasses may get caught or pulled out
+
+    </p>
+  </section>
+
+  <section id="circuit-diagram">
+    <h2>Circuit Diagram</h2>
+    <p>The ultrasonic sensor measures distance; the Arduino activates the buzzer according to distance
+      thresholds allowing the users to be alerted when the are about to make contact with an object.</p>
+    <img src="Circut diagram Distance Glasses.png" alt="Arduino Distance Glasses">
+  </section>
+
+  <section id="environment">
+    <h2>Environmental Impact Assessment</h2>
+    <ul>
+      <li>Comparative Analysis of Technologies
+
+<table> 
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+      <th>Sustainability Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ultrasonic Sensor</strong></td>
+      <td>
+        <ul>
+          <li>Cheap and easily accessible</li>
+          <li>Data is easily interpreted</li>
+          <li>Sensor is durable</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Sensor has issues with accuracy and jitter</li>
+          <li>Sensor is large and unwieldy for a wearable device</li>
+        </ul>
+      </td>
+      <td>Low power draw and simple construction makes the ultrasonic sensor the most sustainable option</td>
+    </tr>
+    <tr>
+      <td><strong>Camera</strong></td>
+      <td>
+        <ul>
+          <li>Much higher fidelity of data</li>
+          <li>Able to expand functions to include things like OCR and facial recognition</li>
+          <li>Potentially much smaller and lighter</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Much more expensive and fragile</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Requires more processing power for more complex functions</li>
+          <li>Data is difficult to access and interpret</li>
+          <li>Cameras require higher power draw and have much more complicated circuitry, making it a less sustainable option</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</li>
+    </ul>
+  </section>
+
+  <section id="bom">
+    <h2>Bill of Materials (BoM)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Subtotal</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Arduino Uno Rev3</strong></td>
+          <td>1</td>
+          <td>$27.60</td>
+          <td>$27.60</td>
+          <td><a href="https://store-usa.arduino.cc/products/arduino-uno-rev3">Arduino Store</a></td>
+        </tr>
+        <tr>
+          <td><strong>HC-SR04 Ultrasonic Sensor</strong></td>
+          <td>1</td>
+          <td>$3.95</td>
+          <td>$3.95</td>
+          <td><a href="https://www.adafruit.com/product/3942">Adafruit</a></td>
+        </tr>
+        <tr>
+          <td><strong>Passive Buzzer</strong></td>
+          <td>1</td>
+          <td>$0.95</td>
+          <td>$0.95</td>
+          <td><a href="https://www.sparkfun.com/passive-buzzer-module.html">SparkFun</a></td>
+        </tr>
+        <tr>
+          <td><strong>Jumper Wires</strong></td>
+          <td>1 set</td>
+          <td>$3.50</td>
+          <td>$3.50</td>
+          <td><a href="https://www.sparkfun.com/jumper-wires-standard-7-m-m-30-awg-30-pack.html">SparkFun</a>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Safety Glasses</strong></td>
+          <td>1</td>
+          <td>$0.30</td>
+          <td>$0.30</td>
+          <td><a
+              href="https://www.uline.ca/Product/Detail/S-13390C/Safety-Glasses/Ice-Wraparounds-Clear?pricode=YF334&gadtype=pla&id=S-13390C&gad_source=1&gad_campaignid=21829660221&gbraid=0AAAAAD2OYMaFOzb9m43aFSxEnCVDCnL1Y&gclid=CjwKCAjwyYPOBhBxEiwAgpT8P7vIVqL3qwaYY8cnN4FQ5jyA_prXVn8_MBaTTEHTiuEf4-pUCHH2txoC3boQAvD_BwE">Uline
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Lanyard</strong></td>
+          <td>1</td>
+          <td>$1.00</td>
+          <td>$1.00</td>
+          <td><a href="https://www.amazon.ca/Lanyards-Swivel-Lanyard-Durable-Keychain/dp/B091F747BS?th=1">Amazon </a>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Carrying Case</strong></td>
+          <td>1</td>
+          <td>$1.50</td>
+          <td>$1.50</td>
+          <td><a
+              href="https://www.amazon.ca/Stationery-Organizer-Capacity-Multifunction-Transparent/dp/B0CGDX6V1G/ref=asc_df_B0CGDX6V1G?mcid=786a7dc86600335ba1514dd8683d2bc1&tag=googleshopc0c-20&linkCode=df0&hvadid=716114836781&hvpos=&hvnetw=g&hvrand=5452595806712539707&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198443&hvtargid=pla-2396457064027&psc=1&hvocijid=5452595806712539707-B0CGDX6V1G-&hvexpln=0&gad_source=1">Amazon
+            </a>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Estimated Total</td>
+          <td>$42.25</td>
+          <td>—</td>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+  <section id="prototype">
+    <h2>Prototype</h2>
+    <p>The following image shows the assembled prototype on a breadboard.</p>
+    <img id="prototypefinalImage" src="prototypefinal.jpg" alt="Collision warning system prototype">
+  </section>
+
+  <section id="code">
+    <h2>Arduino Code</h2>
+    <p>The following Arduino code controls the system, buzzer based on distance readings from the HC-SR04 sensor.</p>
+    <div class="code-container" style="position: relative;">
+      <button class="copy-btn" onclick="copyCode()" style="position:absolute; top:8px; right:8px; z-index:10;">
+        Copy
+      </button>
+
+      <pre class="line-numbers">
+
+  <code id="arduinoCode" class="language-cpp">
+    
+/*
+ */
+
+  //pin numbers
+  const int BUZZER = 2;
+  const int ECHO = 10;
+  const int TRIG = 9;
+
+  float distance = 0, avgDistance = 0;
+  int currentZone = 0, lastZone = 0, timer = 0;
+  double lastBuzzerTime;
+  float distances[3] = {0.0, 0.0, 0.0};
+
+  //the far bound of each zone. these can be easily adjusted by the end user to customize their experience.
+  int zones[5] = {150, 75, 50, 25, 10};
+  //the timer for how often the buzzer sounds. this can also be adjusted by the end user
+  int zoneTimers[6] = {4000, 2000, 1000, 500, 250, 100};
+  int soundFreq[6] = {200, 300, 500, 750, 1000, 1500};
+
+
+void setup() {
+
+    pinMode(BUZZER, OUTPUT);
+    pinMode(TRIG, OUTPUT);
+    pinMode(ECHO, INPUT);
+    Serial.begin(9600);
+
+  lastBuzzerTime = millis();
+  
+}
+
+/* The basic logic is that when the distance is measured by the ultrasonic sensor, it's catergorized into a zone, with higher numbers being closer
+  each zone has an associated "timer" value that denotes the length of time between buzzer activations
+  in order to not be blocked by delay() code, we check the difference between the current time with millis() and last recorded buzzer time
+  if the difference in time is greater than the timeout timer, sound the buzzer and update the most recent buzzer time
+*/
+
+void loop() {
+
+  Serial.print(distance);
+  Serial.print("\n");
+    delay(50);
+  //gets distance
+    readDistance();
+  //applies averaging to mitigate jitter
+    smoothing();
+
+  //determines zone distance and thus beep timeout
+    if(avgDistance > zones[0]) {
+      currentZone = 0;
+    } else if(avgDistance > zones[1] && avgDistance < zones[0]) {
+      currentZone = 1;
+    } else if(avgDistance > zones[2] && avgDistance < zones[1]) {
+      currentZone = 2;
+    } else if(avgDistance > zones[3] && avgDistance < zones[2]) {
+      currentZone = 3;
+    } else if (avgDistance > zones[4] && avgDistance < zones[3]) {
+        currentZone = 4;
+    } else {
+      currentZone = 5;
+    }
+
+  //update timer
+  timer = zoneTimers[currentZone];
+
+  //check timeout and sound if it's been long enough
+  if(millis() - lastBuzzerTime > timer) {
+    soundBuzzer();
+  }
+
+  /*if(currentZone != lastZone) {
+    lastZone = currentZone;
+  } */
+    
+    
+}
+
+void readDistance() {
+    digitalWrite(TRIG, LOW);
+    delay(2);
+    digitalWrite(TRIG, HIGH);
+    delay(2);
+    digitalWrite(TRIG, LOW);
+    distance = pulseIn(ECHO, HIGH) / 58.0;
+}
+
+
+//sounds the buzzer and stores the time of sound
+void soundBuzzer() {
+  tone(BUZZER, soundFreq[currentZone]);
+  delay(50);
+  noTone(BUZZER);
+  lastBuzzerTime = millis();
+}
+
+//stores each of the last 3 distances in an array and averages them out
+void smoothing() {
+  distances[2] = distances[1];
+  distances[1] = distances[0];
+  distances[0] = distance;
+  avgDistance = (distances[0] + distances[1] + distances[2])/3.0;
+}
+</code>
+</pre>
+    </div>
+  </section>
+  <section id="conclusion">
+    <h2>Conclusion</h2>
+    <p>The glasses need to be able to sense distance and inform the user of the approximate distance to objects in front of them. 
+      The glasses will be a success if someone who is unable to see is able to navigate the environment around them successfully by using them. 
+      Some issues that may impact our ability to complete the project are the fidelity of the ultrasonic sensor, the difficulty of making the device stable as a wearable project, 
+      and a lack of technical skills in order to build it.
+ </p>
+  </section>
+
+ <section id="references">
+  <h2>References</h2>
+
+  <ul>
+    <li>
+      Arduino Project Hub. (n.d.). 
+      <em>Ultrasonic sensor projects.</em> 
+      Arduino Project Hub. 
+      <a href="https://projecthub.arduino.cc/projects/tags/ultrasonic-sensor" target="_blank" rel="noopener noreferrer">
+        https://projecthub.arduino.cc/projects/tags/ultrasonic-sensor
+      </a>
+    </li>
+
+    <li>
+      Arduino Project Hub. (n.d.). 
+      <em>Buzzer projects.</em> 
+      Arduino Project Hub. 
+      <a href="https://create.arduino.cc/projecthub/projects/tags/buzzer" target="_blank" rel="noopener noreferrer">
+        https://create.arduino.cc/projecthub/projects/tags/buzzer
+      </a>
+    </li>
+
+    <li>
+      Arduino Project Hub. (n.d.). 
+      <em>LED projects.</em> 
+      Arduino Project Hub. 
+      <a href="https://projecthub.arduino.cc/projects/tags/led" target="_blank" rel="noopener noreferrer">
+        https://projecthub.arduino.cc/projects/tags/led
+      </a>
+    </li>
+
+    <li>
+      Instructables. (n.d.). 
+      <em>Distance measurement using ultrasonic sensor.</em> 
+      Instructables. 
+      <a href="https://www.instructables.com/Arduino-Distance-Measurement-Using-Ultrasonic-Senso/" target="_blank" rel="noopener noreferrer">
+        https://www.instructables.com/Arduino-Distance-Measurement-Using-Ultrasonic-Senso/
+      </a>
+    </li>
+
+    <li>
+      Circuit Basics. (n.d.). 
+      <em>How to use an ultrasonic sensor with Arduino.</em> 
+      Circuit Basics. 
+      <a href="https://www.circuitbasics.com/how-to-use-an-ultrasonic-sensor-with-arduino/" target="_blank" rel="noopener noreferrer">
+        https://www.circuitbasics.com/how-to-use-an-ultrasonic-sensor-with-arduino/
+      </a>
+    </li>
+
+    <li>
+      Last Minute Engineers. (n.d.). 
+      <em>Ultrasonic sensor tutorial.</em> 
+      Last Minute Engineers. 
+      <a href="https://lastminuteengineers.com/ultrasonic-sensor-arduino-tutorial/" target="_blank" rel="noopener noreferrer">
+        https://lastminuteengineers.com/ultrasonic-sensor-arduino-tutorial/
+      </a>
+    </li>
+
+    <li>
+      Science Buddies. (n.d.). 
+      <em> Obstacle detecting glasses in arduino.</em> 
+      Science Buddies. 
+      <a href="https://youtu.be/Vg6tvNNRlTA?si=dHXdZ5bNyY83bHTO" target="_blank" rel="noopener noreferrer">
+        https://youtu.be/Vg6tvNNRlTA?si=dHXdZ5bNyY83bHTO
+      </a>
+    </li>
+
+    <li>
+      DIY Guy Chris. (n.d.). 
+      <em> ultrasonic distance sensor arduino projects.</em> 
+      DIY Guy Chris. 
+      <a href="https://youtu.be/Lxh7hh_gl8Q?si=XLebkIvIEvBKV9QN" target="_blank" rel="noopener noreferrer">
+        https://youtu.be/Lxh7hh_gl8Q?si=XLebkIvIEvBKV9QN
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+
+</body>
+
+</html>
